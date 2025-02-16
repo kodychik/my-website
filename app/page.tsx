@@ -59,7 +59,7 @@ const projects = [
   {
     title: 'Project Name',
     description: 'Developed and deployed a natural language-based navigation app that allows users to create customized routes, such as scenic paths or optimized stopovers, by integrating Google Maps API with OpenAI\'s GPT. Built a scalable MVP using Docker and Google Cloud Platform (GCP), reducing trip planning time by 50% through real-time route adjustments based on user preferences. This project showcases expertise in AI-driven navigation, cloud deployment, and user-centric optimization.',
-    image: '/project1.jpg',
+    image: '/images/uoft.jpg',
     link: '#',
     github: '#',
   },
@@ -123,7 +123,7 @@ export default function Page() {
         <div className="relative w-48 h-48 md:w-64 md:h-64">
           <div className="rounded-full overflow-hidden border-4 border-neutral-200 dark:border-neutral-800">
             <Image
-              src="/images/placeholder-profile.jpg"
+              src="/images/uoft.jpg"
               alt="Profile"
               width={256}
               height={256}
@@ -165,14 +165,16 @@ export default function Page() {
                     </button>
                   </>
                 ) : (
-                  <div className="relative w-full h-32">
-                    <Image
-                      src={exp.image}
-                      alt={exp.company}
-                      fill
-                      className="object-contain rounded-lg p-2"
-                    />
-                  </div>
+                  exp.image && (
+                    <div className="relative w-full h-32">
+                      <Image
+                        src={exp.image}
+                        alt={exp.company}
+                        fill
+                        className="object-contain rounded-lg p-2"
+                      />
+                    </div>
+                  )
                 )}
               </div>
               <div className="flex-1 space-y-4">
