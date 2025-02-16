@@ -31,6 +31,7 @@
 
 html {
   min-width: 360px;
+  scroll-behavior: smooth;
 }
 
 .prose .anchor {
@@ -147,4 +148,18 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+.fade {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
 }
