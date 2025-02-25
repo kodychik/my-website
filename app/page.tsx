@@ -24,9 +24,9 @@ const experiences = [
     role: 'Software Engineer ML Intern',
     period: 'May 2024 - August 2024',
     description: 'Designed and implemented advanced RAG and VLM pipelines using OpenAI, Langchain, LlamaIndex, and other AI frameworks to enhance an intelligent robot chemist\'s query function. Improved retrieval accuracy and technical problem-solving efficiency by over 70% by benchmarking 1,000+ embedding, retrieval, and reranking combinations with agentic reasoning. Additionally, leveraged Computer Vision tools like OpenCV, YOLO, and Pytesseract to automate data extraction using headless scraping on a Dockerized GCP Virtual Machine.',
-    video: '/videos/c12.mp4', // Add video path
-    //image: '/company1.jpg',
-    link: 'https://www.c12.ai/',
+    youtubeId: 'D00Awp5K3Qk', // Replace with your unlisted video ID
+    image: '/images/c12.jpeg',
+    link: 'https://www.c12.ai/'
   },
   {
     company: 'University of Toronto',
@@ -57,11 +57,18 @@ const experiences = [
 
 const projects = [
   {
-    title: 'Project Name',
+    title: 'Polaris',
     description: 'Developed and deployed a natural language-based navigation app that allows users to create customized routes, such as scenic paths or optimized stopovers, by integrating Google Maps API with OpenAI\'s GPT. Built a scalable MVP using Docker and Google Cloud Platform (GCP), reducing trip planning time by 50% through real-time route adjustments based on user preferences. This project showcases expertise in AI-driven navigation, cloud deployment, and user-centric optimization.',
-    image: '/images/uoft.jpg',
-    link: '#',
-    github: '#',
+    image: '/images/hult_prize.JPG',
+    link: 'https://aigpsfrontend.vercel.app/',
+    github: 'https://github.com/VikramChandraNarra/aigpsfrontend',
+  },
+  {
+    title: 'Loan Eligibility',
+    description: 'InternVL (VLM), Qwen, OpenAI, Hugging Face, NextJS, TailwindCSS, Python, Flask, RAG, NLP Developed a bank statement loan eligibility tracker leveraging Vision-Language Models (InternVL-8B) to extract structured financial data from PDFs, transforming raw documents into usable insights. Integrated a Retrieval-Augmented Generation (RAG) pipeline to analyze financial patterns and assess loan eligibility, achieving 80% user satisfaction by enhancing accuracy and decision transparency.',
+    image: '/images/loom.jpg',
+    link: 'https://www.loom.com/share/275de6fc585742c7a424bf983c1b5811',
+    github: 'https://github.com/kodychik/CascaAI',
   },
   // Add more projects...
 ]
@@ -112,7 +119,7 @@ export default function Page() {
 
           {/* Resume Button */}
           <Link
-            href="/resume.pdf"
+            href="/King25.pdf"
             className="inline-block px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
           >
             Download Resume
@@ -123,7 +130,7 @@ export default function Page() {
         <div className="relative w-48 h-48 md:w-64 md:h-64">
           <div className="rounded-full overflow-hidden border-4 border-neutral-200 dark:border-neutral-800">
             <Image
-              src="/images/uoft.jpg"
+              src="/images/win1.jpg"
               alt="Profile"
               width={256}
               height={256}
@@ -144,7 +151,7 @@ export default function Page() {
               className="flex flex-col md:flex-row gap-6 p-6 rounded-lg bg-neutral-50 dark:bg-neutral-900"
             >
               <div className="flex flex-col w-full md:w-48">
-                {exp.video ? (
+                {exp.youtubeId ? (
                   <>
                     <div className="relative h-32 mb-2">
                       <Image
@@ -231,17 +238,16 @@ export default function Page() {
               >
                 <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-black p-1 shadow-xl transition-all">
                   <div className="relative aspect-video">
-                    <video
-                      className="w-full h-full"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      controls
-                    >
-                      <source src="/videos/c12.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${experiences[0].youtubeId}?autoplay=1&rel=0`}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0"
+                    ></iframe>
                     <button
                       onClick={() => setIsVideoModalOpen(false)}
                       className="absolute top-4 right-4 text-white hover:text-gray-300"
@@ -260,19 +266,20 @@ export default function Page() {
 
       {/* Projects Section */}
       <section id="projects" className="space-y-8">
-        <h2 className="text-3xl font-bold">Personal Projects</h2>
+        <h2 className="text-3xl font-bold">Projects</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
               className="group relative overflow-hidden rounded-lg bg-neutral-50 dark:bg-neutral-900"
             >
-              <div className="relative h-48">
+              <div className="relative h-64">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform group-hover:scale-105"
+                  className="object-contain p-4"
+                  quality={100}
                 />
               </div>
               <div className="p-6 space-y-4">
