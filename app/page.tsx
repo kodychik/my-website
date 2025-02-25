@@ -130,7 +130,7 @@ export default function Page() {
         <div className="relative w-48 h-48 md:w-64 md:h-64">
           <div className="rounded-full overflow-hidden border-4 border-neutral-200 dark:border-neutral-800">
             <Image
-              src="/images/win1.jpg"
+              src="/images/me2.jpg"
               alt="Profile"
               width={256}
               height={256}
